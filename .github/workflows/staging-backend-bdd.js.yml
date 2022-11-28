@@ -26,13 +26,14 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v3
             - uses: actions/setup-node@v3
-
-            - name: Install node modules
-              run: |
-                  npm install
+            - name: Run install
+              uses: borales/actions-yarn@v4
+              with:
+                  cmd: install # will run `yarn install` command
             - name: run BDD
-              run: |
-                  npm run mac:tests:bdd
+              uses: borales/actions-yarn@v4
+              with:
+                  cmd: tests:bdd
             - uses: 8398a7/action-slack@v3
               with:
                   status: ${{job.status }}
