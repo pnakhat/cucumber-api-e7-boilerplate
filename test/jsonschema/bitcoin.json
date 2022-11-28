@@ -1,0 +1,265 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "default": {},
+  "title": "Root Schema",
+  "required": ["time", "disclaimer", "chartName", "bpi"],
+  "properties": {
+    "time": {
+      "type": "object",
+      "default": {},
+      "title": "The time Schema",
+      "required": ["updated", "updatedISO", "updateduk"],
+      "properties": {
+        "updated": {
+          "type": "string",
+          "default": "",
+          "title": "The updated Schema",
+          "examples": ["Nov 28, 2022 20:51:00 UTC"]
+        },
+        "updatedISO": {
+          "type": "string",
+          "default": "",
+          "title": "The updatedISO Schema",
+          "examples": ["2022-11-28T20:51:00+00:00"]
+        },
+        "updateduk": {
+          "type": "string",
+          "default": "",
+          "title": "The updateduk Schema",
+          "examples": ["Nov 28, 2022 at 20:51 GMT"]
+        }
+      },
+      "examples": [
+        {
+          "updated": "Nov 28, 2022 20:51:00 UTC",
+          "updatedISO": "2022-11-28T20:51:00+00:00",
+          "updateduk": "Nov 28, 2022 at 20:51 GMT"
+        }
+      ]
+    },
+    "disclaimer": {
+      "type": "string",
+      "default": "",
+      "title": "The disclaimer Schema",
+      "examples": [
+        "This data was produced from the CoinDesk Bitcoin Price Index (USD). Non-USD currency data converted using hourly conversion rate from openexchangerates.org"
+      ]
+    },
+    "chartName": {
+      "type": "string",
+      "default": "",
+      "title": "The chartName Schema",
+      "examples": ["Bitcoin"]
+    },
+    "bpi": {
+      "type": "object",
+      "default": {},
+      "title": "The bpi Schema",
+      "required": ["USD", "GBP", "EUR"],
+      "properties": {
+        "USD": {
+          "type": "object",
+          "default": {},
+          "title": "The USD Schema",
+          "required": ["code", "symbol", "rate", "description", "rate_float"],
+          "properties": {
+            "code": {
+              "type": "string",
+              "default": "",
+              "title": "The code Schema",
+              "examples": ["USD"]
+            },
+            "symbol": {
+              "type": "string",
+              "default": "",
+              "title": "The symbol Schema",
+              "examples": ["\u0026#36;"]
+            },
+            "rate": {
+              "type": "string",
+              "default": "",
+              "title": "The rate Schema",
+              "examples": ["16,227.2457"]
+            },
+            "description": {
+              "type": "string",
+              "default": "",
+              "title": "The description Schema",
+              "examples": ["United States Dollar"]
+            },
+            "rate_float": {
+              "type": "number",
+              "default": 0.0,
+              "title": "The rate_float Schema",
+              "examples": [16227.2457]
+            }
+          },
+          "examples": [
+            {
+              "code": "USD",
+              "symbol": "\u0026#36;",
+              "rate": "16,227.2457",
+              "description": "United States Dollar",
+              "rate_float": 16227.2457
+            }
+          ]
+        },
+        "GBP": {
+          "type": "object",
+          "default": {},
+          "title": "The GBP Schema",
+          "required": ["code", "symbol", "rate", "description", "rate_float"],
+          "properties": {
+            "code": {
+              "type": "string",
+              "default": "",
+              "title": "The code Schema",
+              "examples": ["GBP"]
+            },
+            "symbol": {
+              "type": "string",
+              "default": "",
+              "title": "The symbol Schema",
+              "examples": ["\u0026pound;"]
+            },
+            "rate": {
+              "type": "string",
+              "default": "",
+              "title": "The rate Schema",
+              "examples": ["13,559.3566"]
+            },
+            "description": {
+              "type": "string",
+              "default": "",
+              "title": "The description Schema",
+              "examples": ["British Pound Sterling"]
+            },
+            "rate_float": {
+              "type": "number",
+              "default": 0.0,
+              "title": "The rate_float Schema",
+              "examples": [13559.3566]
+            }
+          },
+          "examples": [
+            {
+              "code": "GBP",
+              "symbol": "\u0026pound;",
+              "rate": "13,559.3566",
+              "description": "British Pound Sterling",
+              "rate_float": 13559.3566
+            }
+          ]
+        },
+        "EUR": {
+          "type": "object",
+          "default": {},
+          "title": "The EUR Schema",
+          "required": ["code", "symbol", "rate", "description", "rate_float"],
+          "properties": {
+            "code": {
+              "type": "string",
+              "default": "",
+              "title": "The code Schema",
+              "examples": ["EUR"]
+            },
+            "symbol": {
+              "type": "string",
+              "default": "",
+              "title": "The symbol Schema",
+              "examples": ["\u0026euro;"]
+            },
+            "rate": {
+              "type": "string",
+              "default": "",
+              "title": "The rate Schema",
+              "examples": ["15,807.7064"]
+            },
+            "description": {
+              "type": "string",
+              "default": "",
+              "title": "The description Schema",
+              "examples": ["Euro"]
+            },
+            "rate_float": {
+              "type": "number",
+              "default": 0.0,
+              "title": "The rate_float Schema",
+              "examples": [15807.7064]
+            }
+          },
+          "examples": [
+            {
+              "code": "EUR",
+              "symbol": "\u0026euro;",
+              "rate": "15,807.7064",
+              "description": "Euro",
+              "rate_float": 15807.7064
+            }
+          ]
+        }
+      },
+      "examples": [
+        {
+          "USD": {
+            "code": "USD",
+            "symbol": "\u0026#36;",
+            "rate": "16,227.2457",
+            "description": "United States Dollar",
+            "rate_float": 16227.2457
+          },
+          "GBP": {
+            "code": "GBP",
+            "symbol": "\u0026pound;",
+            "rate": "13,559.3566",
+            "description": "British Pound Sterling",
+            "rate_float": 13559.3566
+          },
+          "EUR": {
+            "code": "EUR",
+            "symbol": "\u0026euro;",
+            "rate": "15,807.7064",
+            "description": "Euro",
+            "rate_float": 15807.7064
+          }
+        }
+      ]
+    }
+  },
+  "examples": [
+    {
+      "time": {
+        "updated": "Nov 28, 2022 20:51:00 UTC",
+        "updatedISO": "2022-11-28T20:51:00+00:00",
+        "updateduk": "Nov 28, 2022 at 20:51 GMT"
+      },
+      "disclaimer": "This data was produced from the CoinDesk Bitcoin Price Index (USD). Non-USD currency data converted using hourly conversion rate from openexchangerates.org",
+      "chartName": "Bitcoin",
+      "bpi": {
+        "USD": {
+          "code": "USD",
+          "symbol": "\u0026#36;",
+          "rate": "16,227.2457",
+          "description": "United States Dollar",
+          "rate_float": 16227.2457
+        },
+        "GBP": {
+          "code": "GBP",
+          "symbol": "\u0026pound;",
+          "rate": "13,559.3566",
+          "description": "British Pound Sterling",
+          "rate_float": 13559.3566
+        },
+        "EUR": {
+          "code": "EUR",
+          "symbol": "\u0026euro;",
+          "rate": "15,807.7064",
+          "description": "Euro",
+          "rate_float": 15807.7064
+        }
+      }
+    }
+  ]
+}

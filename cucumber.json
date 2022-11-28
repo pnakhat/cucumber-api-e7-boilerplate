@@ -1,0 +1,11 @@
+{
+  "default": {
+    "parallel": 4,
+    "format": [
+      "cucumber-console-formatter",
+      "html:testreport/cucumber-report.html",
+      "json:testreport/cucumber_report.json"
+    ],
+    "require": ["./test/e2e/steps/*.js", "./test/e2e/support/*.js"]
+  }
+}

@@ -1,0 +1,48 @@
+name: Backend BDD Tests
+env:
+    SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+on:
+    workflow_dispatch:
+    push:
+        branches:
+            - '**'
+        tags-ignore:
+            - '**'
+        paths:
+            - '**.js'
+            - '**.ts'
+            - '**.json'
+            # - "**.yaml"
+            # - "**.yml"
+    workflow_run:
+        workflows: Continuous deployment to staging
+        types:
+            - completed
+
+jobs:
+    backend-tests-staging:
+        runs-on: ubuntu-20.04
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
+
+            - name: Install node modules
+              run: |
+                  npm install
+            - name: run BDD
+              run: |
+                  npm run mac:tests:bdd
+            - uses: 8398a7/action-slack@v3
+              with:
+                  status: ${{job.status }}
+                  fields: repo,message,commit,author,action,eventName,ref,workflow,job,took,pullRequest # selectable (default: repo,message)
+              if: always()
+            - uses: actions/upload-artifact@v3
+              with:
+                  name: BDD
+                  path: ./testreport
+            - uses: deblockt/cucumber-report-annotations-action@v1.11
+              with:
+                  access-token: ${{ secrets.GITHUB_TOKEN }}
+                  path: '**/cucumber_report.json'

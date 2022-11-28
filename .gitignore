@@ -1,0 +1,16 @@
+### IntelliJ ###
+.idea/
+
+.tmp/
+
+### Logs ###
+testreport/*
+
+!testreport/.add
+
+### Node ###
+node_modules/
+
+### MACOS ###
+.DS_Store
+

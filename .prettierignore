@@ -1,0 +1,7 @@
+.idea/*
+documents/*
+images/*
+node_modules/*
+test-report/*
+yarn.lock
+videos/*
